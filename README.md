@@ -23,7 +23,16 @@ dvc remote add minio_storage s3://tutorial-bucket
 dvc remote modify minio_storage endpointurl http://localhost:12000
 
 ## Modify credentials of minio_storage
+## Create access key first
 dvc remote modify --local minio_storage access_key_id 'MS73K6vU9nlX4QCT4lLo'
 dvc remote modify --local minio_storage secret_access_key 'itUCQ69p9AhaTh2FGSKGpcophT71LmsZCc870FEE'
 
+```
+
+## Insert a Data to DVC
+```
+dvc add data/data.txt
+git add data/data.txt.dvc data/.gitignore
+git commit -m "data v1.0"
+git push
 ```
