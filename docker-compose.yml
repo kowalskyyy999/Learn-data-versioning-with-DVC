@@ -1,0 +1,11 @@
+version: '3.2'
+
+services:
+  minio-server:
+    image: minio-server:latest
+    build:
+      context: .
+    container_name: minio-server
+    ports:
+      - "12000:9000"
+      - "12001:9001"
