@@ -31,8 +31,23 @@ dvc remote modify --local minio_storage secret_access_key 'itUCQ69p9AhaTh2FGSKGp
 
 ## Insert a Data to DVC
 ```
+git tag -a v1.0 -m "data v1.0"
 dvc add data/data.txt
 git add data/data.txt.dvc data/.gitignore
 git commit -m "data v1.0"
-git push
+git push origin v1.0
+```
+
+## Versioning
+```bash
+## == Update a content in  data.txt ==
+git tag -a v2.0 -m "data v2.0"
+dvc add data/data.txt
+git add data/data.txt.dvc
+git commit -m "data v2.0"
+git push origin v2.0
+
+## Rollback data.txt to v1.0
+git checkout v1.0 data/data.txt.dvc
+dvc checkout
 ```
